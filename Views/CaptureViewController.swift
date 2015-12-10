@@ -8,8 +8,11 @@ protocol CaptureViewControllerDelegate {
 
 class CaptureViewController: UIViewController {
     
+    var image: UIImage?
     var delegate: CaptureViewControllerDelegate?
     
+    
+    @IBOutlet weak var myImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,8 +27,6 @@ class CaptureViewController: UIViewController {
         
         presentViewController(imagePicker, animated: true, completion: nil)
         
-        
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -35,17 +36,25 @@ class CaptureViewController: UIViewController {
             print("view will disappear")
             delegate?.canShowAlert()
         }
+    }
+    
+    func unlockGeocache() {
         
-
     }
     
 }
 
 extension CaptureViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        dismissViewControllerAnimated(true, completion: nil)
+        self.image = image
+        myImage.image = image
+        unlockGeocache()
+    }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true) { _ in
-            
         }
     }
 }

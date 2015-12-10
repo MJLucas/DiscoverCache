@@ -129,10 +129,19 @@
                     <view key="view" contentMode="scaleToFill" id="hlY-KY-bM5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q79-Lc-tbG">
+                                <rect key="frame" x="174" y="120" width="240" height="128"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="btf-HE-fJ4"/>
+                    <connections>
+                        <outlet property="myImage" destination="q79-Lc-tbG" id="qMA-Q3-U4L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1N-OU-Yyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
