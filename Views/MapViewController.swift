@@ -20,7 +20,7 @@ class MapViewController: UIViewController {
         
         
         let bournemouthPier = CLLocationCoordinate2D(latitude: 50.716098, longitude: -1.875780)
-        let bournemouthPierRegion = CLCircularRegion(center: bournemouthPier, radius: 50, identifier: "Bournemouth Pier")
+        let bournemouthPierRegion = CLCircularRegion(center: bournemouthPier, radius: 50, identifier: "Open your camera and take a picture")
         locationManager.startMonitoringForRegion(bournemouthPierRegion)
         
     }
@@ -41,7 +41,7 @@ extension MapViewController: CLLocationManagerDelegate {
         
         if !alertShowing {
             alertShowing = true
-            let alert = UIAlertController(title: "Found!", message: region.identifier, preferredStyle: .ActionSheet)
+            let alert = UIAlertController(title: "You have found the Bournemouth Pier Geocache!", message: region.identifier, preferredStyle: .ActionSheet)
             alert.addAction(UIAlertAction(title: "Capture Geocache", style: .Default, handler: { _ in
                 self.performSegueWithIdentifier("Capture", sender: self)
             }))
